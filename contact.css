@@ -1,0 +1,389 @@
+/* Basic Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Primary text font */
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif; /* Headings font */
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+p { font-size: 1rem; margin-bottom: 1rem; }
+
+a {
+    text-decoration: none;
+    color: #007bff; /* Primary blue */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header */
+.header {
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #007bff; /* Katyal & Co. blue */
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav-link {
+    color: #333;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #007bff;
+}
+
+.nav-link.active::after, .nav-link:hover::after {
+    content: '';
+    position: absolute;
+    left: 1rem; /* Adjust to center */
+    right: 1rem; /* Adjust to center */
+    bottom: 0;
+    height: 2px;
+    background-color: #007bff;
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+}
+.nav-link::after { /* Initial state for hover effect */
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0;
+    height: 2px;
+    background-color: #007bff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+
+/* Hamburger Menu (for mobile) */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 20px;
+}
+
+.hamburger .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-contact {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?modern-office-lobby,real-estate-interior') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 8rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    overflow: hidden; /* To hide initial state of animated elements */
+}
+
+.hero-contact .container {
+    opacity: 0; /* Initial state for animation */
+    transform: translateY(20px); /* Initial state for animation */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.hero-contact.loaded .container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* Contact Section */
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 4rem 0;
+}
+
+.contact-form-wrapper,
+.contact-info-wrapper {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    opacity: 0; /* Initial state for scroll animation */
+    transform: translateY(50px); /* Initial state for scroll animation */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.contact-form-wrapper.is-visible,
+.contact-info-wrapper.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-form h2,
+.contact-info-wrapper h2 {
+    color: #007bff; /* Primary blue for section titles */
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding-top: 1.8rem; /* Space for label */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.form-group label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: #777;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    pointer-events: none; /* Allow clicks to pass through to input */
+}
+
+/* Animate label when input is focused or has content */
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:not(:placeholder-shown) + label {
+    top: 0.5rem;
+    font-size: 0.75rem;
+    color: #007bff;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Contact Info */
+.social-icons {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center; /* Center social icons */
+    gap: 1.5rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #007bff;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: translateY(-3px) scale(1.1);
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+}
+
+.info-item h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.info-item p {
+    color: #555;
+    font-size: 1rem;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 280px; /* Adjust map height */
+    border: 0;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header .container {
+        flex-wrap: wrap;
+    }
+    .nav {
+        display: none; /* Hide navigation by default on mobile */
+        width: 100%;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        padding: 1rem 0;
+        margin-top: 1rem;
+    }
+
+    .nav.active {
+        display: flex; /* Show when active */
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-link {
+        padding: 0.8rem 1rem;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger on mobile */
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .contact-section {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .contact-form-wrapper,
+    .contact-info-wrapper {
+        padding: 1.5rem;
+    }
+
+    .map-container iframe {
+        height: 200px;
+    }
+}
+
+/* For placeholder to move when input is filled */
+.form-group input:placeholder-shown + label,
+.form-group textarea:placeholder-shown + label {
+    top: 1rem;
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Hide actual placeholder text */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: transparent;
+}

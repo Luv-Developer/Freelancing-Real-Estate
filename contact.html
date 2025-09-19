@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Katyal & Co.</title>
+    <link rel = "stylesheet" type = "text/css" href = "contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">KATYAL & CO.</div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="about.html" class="nav-link">ABOUT US</a></li>
+                    <li><a href="properties.html" class="nav-link">OUR PROPERTIES</a></li>
+                    <li><a href="contact.html" class="nav-link active">CONTACT US</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-contact">
+            <div class="container">
+                <h1 class="hero-title">Let's Connect</h1>
+                <p class="hero-subtitle">We're here to help you find your dream property. Reach out to us today!</p>
+            </div>
+        </section>
+
+        <section class="contact-section container" id="contactSection">
+            <div class="contact-form-wrapper animate-on-scroll">
+                <h2>Send Us a Message</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="fullName" name="fullName" required placeholder="Full Name">
+                        <label for="fullName">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder="Email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn primary-btn">SEND MESSAGE</button>
+                </form>
+            </div>
+
+            <div class="contact-info-wrapper animate-on-scroll">
+                <h2>Contact Details</h2>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="info-item">
+                    <h3>Address:</h3>
+                    <p>Katyal & Co.<br>Sector 6, Pocket D-7, Shop No. 227-228<br>Rohini, New Delhi - 110085</p>
+                </div>
+                <div class="info-item">
+                    <h3>Phone:</h3>
+                    <p>+91-XXXXXXXXXX</p>
+                </div>
+                <div class="info-item">
+                    <h3>Email:</h3>
+                    <p>info@katyalrealestate.com</p>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.051419999026!2d77.10860507542152!3d28.775837275604118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d0144f77c3a4f%3A0x6b8c9d0e7a2c7a9!2sSector%206%2C%20Rohini%2C%20Delhi%2C%20110085!5e0!3m2!1sen!2sin!4v1678912345678!5m2!1sen!2sin"
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Katyal & Co. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="contact.js"></script>
+</body>
+</html>
